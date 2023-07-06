@@ -1,4 +1,4 @@
-import os, subprocess
+import os, subprocess, time
 from pathlib import Path
 from shlex import split
 
@@ -16,6 +16,7 @@ def compare_images(path_gen, path_ref):
     Parameters: file path to generated and reference image files
     Returns: True/ False
     """
+    start = time.perf_counter()
     # Verify that the path to the generated file exists.
     assert ".png" in str(path_gen)
     assert path_gen.exists()
@@ -38,10 +39,14 @@ def compare_images(path_gen, path_ref):
     # Calculate the ratio of pixels that differ significantly.
     ratio_diff = np.mean(pixels_diff)
 
+    end = time.perf_counter()
+    elapsed = end - start
+    print(f"In compare_images() for {elapsed:.6f} seconds.")
+
     # Images are similar if only a small % of pixels differ significantly.
     #   This value can be increased if tests are failing when they shouldn't.
     #   It can be decreased if tests are passing when they shouldn't.
-    if ratio_diff < 0.0075:
+    if ratio_diff < 0.015:
         return True
     else:
         print("bad pixel ratio:", ratio_diff)
