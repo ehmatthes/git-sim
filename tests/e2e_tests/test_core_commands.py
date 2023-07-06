@@ -6,7 +6,7 @@ To induce failure, include a call to `run_git_reset()` in one of the
   test functions.
 """
 
-import os, subprocess
+import os, subprocess, time, inspect
 from pathlib import Path
 
 from utils import get_cmd_parts, compare_images, run_git_reset
@@ -18,7 +18,11 @@ def test_add(tmp_repo):
     cmd_parts = get_cmd_parts(raw_cmd)
 
     os.chdir(tmp_repo)
+    start = time.perf_counter()
     output = subprocess.run(cmd_parts, capture_output=True)
+    end = time.perf_counter()
+    elapsed = end - start
+    print(f"Spent {elapsed:.3f} seconds running {inspect.currentframe().f_code.co_name}.")
 
     fp_generated = Path(output.stdout.decode().strip())
     fp_reference = Path(__file__).parent / "reference_files/git-sim-add.png"
@@ -33,7 +37,11 @@ def test_branch(tmp_repo):
     cmd_parts = get_cmd_parts(raw_cmd)
 
     os.chdir(tmp_repo)
+    start = time.perf_counter()
     output = subprocess.run(cmd_parts, capture_output=True)
+    end = time.perf_counter()
+    elapsed = end - start
+    print(f"Spent {elapsed:.3f} seconds running {inspect.currentframe().f_code.co_name}.")
 
     fp_generated = Path(output.stdout.decode().strip())
     fp_reference = Path(__file__).parent / "reference_files/git-sim-branch.png"
@@ -48,7 +56,11 @@ def test_checkout(tmp_repo):
     cmd_parts = get_cmd_parts(raw_cmd)
 
     os.chdir(tmp_repo)
+    start = time.perf_counter()
     output = subprocess.run(cmd_parts, capture_output=True)
+    end = time.perf_counter()
+    elapsed = end - start
+    print(f"Spent {elapsed:.3f} seconds running {inspect.currentframe().f_code.co_name}.")
 
     fp_generated = Path(output.stdout.decode().strip())
     fp_reference = Path(__file__).parent / "reference_files/git-sim-checkout.png"
@@ -63,7 +75,11 @@ def test_cherrypick(tmp_repo):
     cmd_parts = get_cmd_parts(raw_cmd)
 
     os.chdir(tmp_repo)
+    start = time.perf_counter()
     output = subprocess.run(cmd_parts, capture_output=True)
+    end = time.perf_counter()
+    elapsed = end - start
+    print(f"Spent {elapsed:.3f} seconds running {inspect.currentframe().f_code.co_name}.")
 
     fp_generated = Path(output.stdout.decode().strip())
     fp_reference = Path(__file__).parent / "reference_files/git-sim-cherry_pick.png"
@@ -78,7 +94,11 @@ def test_clean(tmp_repo):
     cmd_parts = get_cmd_parts(raw_cmd)
 
     os.chdir(tmp_repo)
+    start = time.perf_counter()
     output = subprocess.run(cmd_parts, capture_output=True)
+    end = time.perf_counter()
+    elapsed = end - start
+    print(f"Spent {elapsed:.3f} seconds running {inspect.currentframe().f_code.co_name}.")
 
     fp_generated = Path(output.stdout.decode().strip())
     fp_reference = Path(__file__).parent / "reference_files/git-sim-clean.png"
@@ -93,7 +113,11 @@ def test_commit(tmp_repo):
     cmd_parts = get_cmd_parts(raw_cmd)
 
     os.chdir(tmp_repo)
+    start = time.perf_counter()
     output = subprocess.run(cmd_parts, capture_output=True)
+    end = time.perf_counter()
+    elapsed = end - start
+    print(f"Spent {elapsed:.3f} seconds running {inspect.currentframe().f_code.co_name}.")
 
     fp_generated = Path(output.stdout.decode().strip())
     fp_reference = Path(__file__).parent / "reference_files/git-sim-commit.png"
@@ -108,7 +132,11 @@ def test_log(tmp_repo):
     cmd_parts = get_cmd_parts(raw_cmd)
 
     os.chdir(tmp_repo)
+    start = time.perf_counter()
     output = subprocess.run(cmd_parts, capture_output=True)
+    end = time.perf_counter()
+    elapsed = end - start
+    print(f"Spent {elapsed:.3f} seconds running {inspect.currentframe().f_code.co_name}.")
 
     fp_generated = Path(output.stdout.decode().strip())
     fp_reference = Path(__file__).parent / "reference_files/git-sim-log.png"
@@ -123,7 +151,11 @@ def test_merge(tmp_repo):
     cmd_parts = get_cmd_parts(raw_cmd)
 
     os.chdir(tmp_repo)
+    start = time.perf_counter()
     output = subprocess.run(cmd_parts, capture_output=True)
+    end = time.perf_counter()
+    elapsed = end - start
+    print(f"Spent {elapsed:.3f} seconds running {inspect.currentframe().f_code.co_name}.")
 
     fp_generated = Path(output.stdout.decode().strip())
     fp_reference = Path(__file__).parent / "reference_files/git-sim-merge.png"
@@ -138,7 +170,11 @@ def test_mv(tmp_repo):
     cmd_parts = get_cmd_parts(raw_cmd)
 
     os.chdir(tmp_repo)
+    start = time.perf_counter()
     output = subprocess.run(cmd_parts, capture_output=True)
+    end = time.perf_counter()
+    elapsed = end - start
+    print(f"Spent {elapsed:.3f} seconds running {inspect.currentframe().f_code.co_name}.")
 
     fp_generated = Path(output.stdout.decode().strip())
     fp_reference = Path(__file__).parent / "reference_files/git-sim-mv.png"
@@ -153,7 +189,11 @@ def test_rebase(tmp_repo):
     cmd_parts = get_cmd_parts(raw_cmd)
 
     os.chdir(tmp_repo)
+    start = time.perf_counter()
     output = subprocess.run(cmd_parts, capture_output=True)
+    end = time.perf_counter()
+    elapsed = end - start
+    print(f"Spent {elapsed:.3f} seconds running {inspect.currentframe().f_code.co_name}.")
 
     fp_generated = Path(output.stdout.decode().strip())
     fp_reference = Path(__file__).parent / "reference_files/git-sim-rebase.png"
@@ -168,7 +208,11 @@ def test_reset(tmp_repo):
     cmd_parts = get_cmd_parts(raw_cmd)
 
     os.chdir(tmp_repo)
+    start = time.perf_counter()
     output = subprocess.run(cmd_parts, capture_output=True)
+    end = time.perf_counter()
+    elapsed = end - start
+    print(f"Spent {elapsed:.3f} seconds running {inspect.currentframe().f_code.co_name}.")
 
     fp_generated = Path(output.stdout.decode().strip())
     fp_reference = Path(__file__).parent / "reference_files/git-sim-reset.png"
@@ -183,7 +227,11 @@ def test_restore(tmp_repo):
     cmd_parts = get_cmd_parts(raw_cmd)
 
     os.chdir(tmp_repo)
+    start = time.perf_counter()
     output = subprocess.run(cmd_parts, capture_output=True)
+    end = time.perf_counter()
+    elapsed = end - start
+    print(f"Spent {elapsed:.3f} seconds running {inspect.currentframe().f_code.co_name}.")
 
     fp_generated = Path(output.stdout.decode().strip())
     fp_reference = Path(__file__).parent / "reference_files/git-sim-restore.png"
@@ -198,7 +246,11 @@ def test_revert(tmp_repo):
     cmd_parts = get_cmd_parts(raw_cmd)
 
     os.chdir(tmp_repo)
+    start = time.perf_counter()
     output = subprocess.run(cmd_parts, capture_output=True)
+    end = time.perf_counter()
+    elapsed = end - start
+    print(f"Spent {elapsed:.3f} seconds running {inspect.currentframe().f_code.co_name}.")
 
     fp_generated = Path(output.stdout.decode().strip())
     fp_reference = Path(__file__).parent / "reference_files/git-sim-revert.png"
@@ -213,7 +265,11 @@ def test_rm(tmp_repo):
     cmd_parts = get_cmd_parts(raw_cmd)
 
     os.chdir(tmp_repo)
+    start = time.perf_counter()
     output = subprocess.run(cmd_parts, capture_output=True)
+    end = time.perf_counter()
+    elapsed = end - start
+    print(f"Spent {elapsed:.3f} seconds running {inspect.currentframe().f_code.co_name}.")
 
     fp_generated = Path(output.stdout.decode().strip())
     fp_reference = Path(__file__).parent / "reference_files/git-sim-rm.png"
@@ -228,7 +284,11 @@ def test_stash(tmp_repo):
     cmd_parts = get_cmd_parts(raw_cmd)
 
     os.chdir(tmp_repo)
+    start = time.perf_counter()
     output = subprocess.run(cmd_parts, capture_output=True)
+    end = time.perf_counter()
+    elapsed = end - start
+    print(f"Spent {elapsed:.3f} seconds running {inspect.currentframe().f_code.co_name}.")
 
     fp_generated = Path(output.stdout.decode().strip())
     fp_reference = Path(__file__).parent / "reference_files/git-sim-stash.png"
@@ -243,7 +303,11 @@ def test_status(tmp_repo):
     cmd_parts = get_cmd_parts(raw_cmd)
 
     os.chdir(tmp_repo)
+    start = time.perf_counter()
     output = subprocess.run(cmd_parts, capture_output=True)
+    end = time.perf_counter()
+    elapsed = end - start
+    print(f"Spent {elapsed:.3f} seconds running {inspect.currentframe().f_code.co_name}.")
 
     fp_generated = Path(output.stdout.decode().strip())
     fp_reference = Path(__file__).parent / "reference_files/git-sim-status.png"
@@ -257,7 +321,11 @@ def test_switch(tmp_repo):
     cmd_parts = get_cmd_parts(raw_cmd)
 
     os.chdir(tmp_repo)
+    start = time.perf_counter()
     output = subprocess.run(cmd_parts, capture_output=True)
+    end = time.perf_counter()
+    elapsed = end - start
+    print(f"Spent {elapsed:.3f} seconds running {inspect.currentframe().f_code.co_name}.")
 
     fp_generated = Path(output.stdout.decode().strip())
     fp_reference = Path(__file__).parent / "reference_files/git-sim-switch.png"
@@ -272,7 +340,11 @@ def test_tag(tmp_repo):
     cmd_parts = get_cmd_parts(raw_cmd)
 
     os.chdir(tmp_repo)
+    start = time.perf_counter()
     output = subprocess.run(cmd_parts, capture_output=True)
+    end = time.perf_counter()
+    elapsed = end - start
+    print(f"Spent {elapsed:.3f} seconds running {inspect.currentframe().f_code.co_name}.")
 
     fp_generated = Path(output.stdout.decode().strip())
     fp_reference = Path(__file__).parent / "reference_files/git-sim-tag.png"

@@ -41,7 +41,7 @@ def compare_images(path_gen, path_ref):
 
     end = time.perf_counter()
     elapsed = end - start
-    print(f"In compare_images() for {elapsed:.6f} seconds.")
+    print(f"Spent {elapsed:.3f} seconds in compare_images().")
 
     # Images are similar if only a small % of pixels differ significantly.
     #   This value can be increased if tests are failing when they shouldn't.
